@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
 
-public record CreateUserRecordDto(
+public record CreateUserDto(
         @NotBlank String name,
         @NotBlank String document,
         @NotNull BigDecimal balance,

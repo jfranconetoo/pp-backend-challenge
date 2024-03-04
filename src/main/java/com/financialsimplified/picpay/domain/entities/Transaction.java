@@ -29,11 +29,9 @@ public class Transaction {
     private TransactionStatus status;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", insertable=false, updatable=false)
     private User sender;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", insertable=false, updatable=false)
     private User receiver;
 
     private LocalDateTime timestamp;
@@ -47,5 +45,4 @@ public class Transaction {
             throw new Exception("There is no balance");
         }
     }
-
 }

@@ -1,7 +1,6 @@
 package com.financialsimplified.picpay.domain.services;
 
-import com.financialsimplified.picpay.application.dtos.CreateUserRecordDto;
-import com.financialsimplified.picpay.application.dtos.UpdateUserRecordDto;
+import com.financialsimplified.picpay.application.dtos.UpdateUserDto;
 import com.financialsimplified.picpay.domain.entities.User;
 import com.financialsimplified.picpay.providers.database.repositories.UserRepository;
 import org.springframework.beans.BeanUtils;
@@ -18,9 +17,9 @@ public class UpdatedUserService {
         this.userRepository = userRepository;
     }
 
-    User execute(UUID userId, UpdateUserRecordDto updateUserRecordDto) {
+    User execute(UUID userId, UpdateUserDto updateUserDto) {
         return this.userRepository.findById(userId).map(user -> {
-            BeanUtils.copyProperties(updateUserRecordDto, user);
+            BeanUtils.copyProperties(updateUserDto, user);
             return this.userRepository.save(user);
         }).orElseThrow();
     }

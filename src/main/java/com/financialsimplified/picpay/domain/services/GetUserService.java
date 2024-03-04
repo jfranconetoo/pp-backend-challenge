@@ -11,7 +11,6 @@ import java.util.UUID;
 public class GetUserService {
     private final UserRepository userRepository;
 
-    @Autowired
     public GetUserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
